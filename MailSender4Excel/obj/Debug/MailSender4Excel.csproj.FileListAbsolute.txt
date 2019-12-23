@@ -1,0 +1,11 @@
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MainWindow.baml
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MainWindow.g.cs
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\App.g.cs
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MailSender4Excel_MarkupCompile.cache
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MailSender4Excel.g.resources
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MailSender4Excel.Properties.Resources.resources
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MailSender4Excel.csproj.GenerateResource.cache
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\bin\Debug\MailSender4Excel.exe
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\bin\Debug\MailSender4Excel.pdb
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MailSender4Excel.exe
+F:\Project\VsProject\MailSender4Excel\MailSender4Excel\obj\Debug\MailSender4Excel.pdb

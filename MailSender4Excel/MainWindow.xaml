@@ -1,0 +1,39 @@
+﻿<Window x:Class="MailSender4Excel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MailSender4Excel" Height="450" Width="800" ResizeMode="NoResize"  Loaded="Window_Loaded" Closing="Window_Closing">
+	<Grid>
+		<TabControl>
+			<TabItem x:Name="tabItemMain" Header="主页">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="8*"></ColumnDefinition>
+						<ColumnDefinition Width="2*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<TextBox x:Name="textBoxOutPut" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="0" TextWrapping="WrapWithOverflow" IsReadOnly="True" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+					<Button x:Name="buttonStart" Grid.Row="0" Grid.Column="1" Content="开始"></Button>
+				</Grid>
+			</TabItem>
+			<TabItem x:Name="tabItemConfig" Header="配置">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="8*"></ColumnDefinition>
+						<ColumnDefinition Width="2*"></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="2*"></RowDefinition>
+						<RowDefinition Height="8*"></RowDefinition>
+					</Grid.RowDefinitions>
+
+					<TextBox x:Name="textBoxConfigPath" IsReadOnly="True" Text="{Binding ConfigFilePath}"></TextBox>
+					<Button Grid.Column="1" x:Name="buttonSelectConfigFile" Content="选择配置文件" Click="ButtonSelectConfigFile_Click"></Button>
+					<TextBox Grid.Row="1" x:Name="textBoxTestMail" IsReadOnly="False" Text="{Binding TestMailAddress}"></TextBox>
+					<Button Grid.Row="1" Grid.Column="1" x:Name="buttonSendTestMail" Content="发送测试邮件"></Button>
+				</Grid>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>
