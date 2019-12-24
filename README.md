@@ -1,7 +1,7 @@
 # MailSender4Excel
 根据excel文件和html模板批量发送邮件。暂不支持附件和抄送
 # SheetNames说明
-此项数据的抽取包含了那些sheet。多个sheet用逗号分隔。配置后要对应添加[sheetName]的配置。此配置包含对应sheet的起始行，结束行和唯一标识。
+此项表示Excel数据的抽取包含了哪些sheet。多个sheet名称用逗号分隔。配置后要对应添加[sheetName]的配置。此配置包含对应sheet的起始行，结束行和唯一标识。
 # UniquelyIdentifiesLine唯一标识说明
 多个sheet时，需要对应的标识来找到另一个sheet中与当前项对应的数据。
 # 参数表示说明
