@@ -63,5 +63,14 @@
 			get;
 			set;
 		}
+		
+		/// <summary>
+		/// 邮件优先级
+		/// </summary>
+		public int Priority
+		{
+			get;
+			set;
+		}
 	}
 }
