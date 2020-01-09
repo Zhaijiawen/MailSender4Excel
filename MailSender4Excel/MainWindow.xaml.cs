@@ -1,4 +1,4 @@
-﻿using MailSender4Excel.ConfigModel;
+using MailSender4Excel.ConfigModel;
 using MailSender4Excel.DataModel;
 using MailSender4Excel.Util;
 using MailSender4Excel.ViewModel;
@@ -133,6 +133,26 @@ namespace MailSender4Excel
 			}
 		}
 
+		private IList<string> attachmentsField;
+		/// <summary>
+		/// 附件参数
+		/// </summary>
+		private IList<string> Attachments
+		{
+			get
+			{
+				if (attachmentsField == null)
+				{
+					attachmentsField = new List<string>();
+				}
+				return attachmentsField;
+			}
+			set
+			{
+				attachmentsField = value;
+			}
+		}
+
 		private Dictionary<string, object[,]> paramsDictField;
 		/// <summary>
 		/// 参数值集合
@@ -239,6 +259,7 @@ namespace MailSender4Excel
 						BodyParamCount = int.Parse(IniFileReadUtil.ReadIniData("Main", "BodyParamCount", null, configPath)),
 						SubjectParamCount = int.Parse(IniFileReadUtil.ReadIniData("Main", "SubjectParamCount", null, configPath)),
 						MailToParamCount = int.Parse(IniFileReadUtil.ReadIniData("Main", "MailToParamCount", null, configPath)),
+						AttachmentCount = int.Parse(IniFileReadUtil.ReadIniData("Main", "AttachmentCount", null, configPath)),
 					};
 					MailConfigModel = new MailConfigModel
 					{
@@ -249,6 +270,7 @@ namespace MailSender4Excel
 						SMTPAddress = IniFileReadUtil.ReadIniData("Mail", "SMTPAddress", null, configPath),
 						Port = int.Parse(IniFileReadUtil.ReadIniData("Mail", "Port", null, configPath)),
 						EnableSsl = bool.Parse(IniFileReadUtil.ReadIniData("Mail", "EnableSsl", null, configPath)),
+						Priority = int.Parse(IniFileReadUtil.ReadIniData("Mail", "Priority", null, configPath)),
 					};
 					foreach (var sheetName in MainConfigModel.SheetNames)
 					{
@@ -271,6 +293,10 @@ namespace MailSender4Excel
 					for (int i = 0; i < MainConfigModel.MailToParamCount; i++)
 					{
 						MailToParams.Add(IniFileReadUtil.ReadIniData("MailToParams", i.ToString(), null, configPath));
+					}
+					for (int i = 0; i < MainConfigModel.AttachmentCount; i++)
+					{
+						Attachments.Add(IniFileReadUtil.ReadIniData("Attachments", i.ToString(), null, configPath));
 					}
 					//加载工作簿相关内容
 					Workbook = LoadWorkbook(MainConfigModel.FilePath);
@@ -359,6 +385,8 @@ namespace MailSender4Excel
 									Body = FormatString(CalcParamValues(BodyParams, i), bodyHtmlString),
 									Port = MailConfigModel.Port,
 									EnableSsl = MailConfigModel.EnableSsl,
+									Priority = MailConfigModel.Priority,
+									Attachments = CalcParamValues(Attachments, i),
 								};
 								MailSenderUtil.Send(mailDataModel);
 								mailDataSuccessLocation.Add(MainConfigModel.SuccessSimpleLocation + i);
@@ -578,6 +606,8 @@ namespace MailSender4Excel
 						Body = FormatString(CalcParamValues(BodyParams, mainSheetConfig.StartingLine), File.ReadAllText(MainConfigModel.TemplatePath)),
 						Port = MailConfigModel.Port,
 						EnableSsl = MailConfigModel.EnableSsl,
+						Priority = MailConfigModel.Priority,
+						Attachments = CalcParamValues(Attachments, mainSheetConfig.StartingLine),
 					};
 					MailSenderUtil.Send(mailDataModel);
 					System.Windows.MessageBox.Show("发送成功！");
