@@ -1,4 +1,6 @@
-﻿namespace MailSender4Excel.DataModel
+using System.Collections.Generic;
+
+namespace MailSender4Excel.DataModel
 {
 	public class MailDataModel
 	{
