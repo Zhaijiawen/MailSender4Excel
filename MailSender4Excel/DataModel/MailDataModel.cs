@@ -74,7 +74,7 @@ namespace MailSender4Excel.DataModel
 		{
 			get
 			{
-				if (attachmentsField != null)
+				if (attachmentsField == null)
 				{
 					attachmentsField = new List<string>();
 				}
