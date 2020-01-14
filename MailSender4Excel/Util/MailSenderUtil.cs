@@ -1,4 +1,4 @@
-﻿using MailSender4Excel.DataModel;
+using MailSender4Excel.DataModel;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
@@ -43,8 +43,15 @@ namespace MailSender4Excel.Util
 			mailMessage.SubjectEncoding = Encoding.UTF8;
 			mailMessage.Body = mailData.Body;
 			mailMessage.BodyEncoding = Encoding.UTF8;
-			mailMessage.Priority = MailPriority.High;
+			mailMessage.Priority = (MailPriority)mailData.Priority;
 			mailMessage.IsBodyHtml = true;
+			foreach (var attachment in mailData.Attachments)
+			{
+				if (!string.IsNullOrEmpty(attachment))
+				{
+					mailMessage.Attachments.Add(new Attachment(attachment));
+				}
+			}
 			return mailMessage;
 		}
 

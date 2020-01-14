@@ -90,5 +90,14 @@ namespace MailSender4Excel.ConfigModel
 			get;
 			set;
 		}
+		
+		/// <summary>
+		/// 附件个数
+		/// </summary>
+		public int AttachmentCount
+		{
+			get;
+			set;
+		}
 	}
 }

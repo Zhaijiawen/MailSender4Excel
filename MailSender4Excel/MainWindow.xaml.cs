@@ -1,4 +1,4 @@
-﻿using MailSender4Excel.ConfigModel;
+using MailSender4Excel.ConfigModel;
 using MailSender4Excel.DataModel;
 using MailSender4Excel.Util;
 using MailSender4Excel.ViewModel;

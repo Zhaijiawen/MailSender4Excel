@@ -1,4 +1,6 @@
-﻿namespace MailSender4Excel.DataModel
+using System.Collections.Generic;
+
+namespace MailSender4Excel.DataModel
 {
 	public class MailDataModel
 	{
@@ -53,6 +55,35 @@
 		{
 			get;
 			set;
+		}
+		
+		/// <summary>
+		/// 优先级
+		/// </summary>
+		public int Priority
+		{
+			get;
+			set;
+		}
+
+		private IList<string> attachmentsField;
+		/// <summary>
+		/// 附件
+		/// </summary>
+		public IList<string> Attachments
+		{
+			get
+			{
+				if (attachmentsField == null)
+				{
+					attachmentsField = new List<string>();
+				}
+				return attachmentsField;
+			}
+			set
+			{
+				attachmentsField = value;
+			}
 		}
 	}
 }
